@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <h1 class="text-center">Template Driven Form</h1>
+    <form action="" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="abc@xyz.co" ngModel #email="ngModel" required>
+        <div *ngIf="email.invalid && email.touched">Email is required</div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="password" ngModel #password="ngModel" required>
+        <div *ngIf="password.invalid && password.touched">Password is required</div>
+      </div>
+      <button type="" class="btn btn-primary btn-block" [disabled]="!form.valid">Login</button>
+    </form>
+  </div>
+</div>
